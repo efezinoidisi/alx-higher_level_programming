@@ -6,15 +6,21 @@
 class Rectangle:
     """This is a Rectangle class with a width and height
 
+    Attributes:
+         number_of_instances (int): number of instances of the Rectangle class
+
     Args:
            width (int): width of the rectangle
            height (int): height of the rectangle
 
 
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     def __str__(self):
         """ Prints the rectangle using the character '#'"""
@@ -37,6 +43,7 @@ class Rectangle:
 
     def __del__(self):
         """ This method is called whenever an instance is deleted"""
+        type(self).number_of_instances -= 1
         print(f"Bye rectangle...")
 
     @property
