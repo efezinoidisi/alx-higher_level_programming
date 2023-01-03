@@ -1,0 +1,43 @@
+The ``add_integer`` module
+===========================
+
+Import the function
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+Check two positive integers
+>>> add_integer(1, 2)
+3
+
+check two negative integers
+>>> add_integer(-2, -9)
+-11
+
+check one integer and one float
+>>> add_integer(9, 2.5)
+11
+
+
+check string passed as argument
+>>> add_integer("3", "5")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: a must be an integer
+
+
+check for b as a string
+>>> add_integer(3, "5")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: b must be an integer
+
+only one argument is passed
+>>> add_integer(4)
+102
+
+a list is passed
+>>> add_integer(8, [9])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: b must be an integer
