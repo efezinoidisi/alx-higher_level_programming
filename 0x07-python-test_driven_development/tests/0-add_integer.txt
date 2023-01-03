@@ -22,14 +22,14 @@ check one integer and one float
 check string passed as argument
 >>> add_integer("3", "5")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+	  ...
 TypeError: a must be an integer
 
 
 check for b as a string
 >>> add_integer(3, "5")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  	  ...
 TypeError: b must be an integer
 
 only one argument is passed
@@ -39,5 +39,5 @@ only one argument is passed
 a list is passed
 >>> add_integer(8, [9])
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+	  ...
 TypeError: b must be an integer
