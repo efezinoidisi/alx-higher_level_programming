@@ -2,7 +2,7 @@
 
 """
  This is the 0-add_integer module.
- 
+
  This module supplies one function, add_integer(). e.g
 
  >>> add_integer(7, 1)

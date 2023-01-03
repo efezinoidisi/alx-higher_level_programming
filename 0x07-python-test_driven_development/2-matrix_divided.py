@@ -29,12 +29,19 @@ def matrix_divided(matrix, div):
     """
     if not matrix:
         return None
-    if not all(isinstance(value, (int, float)) for row in matrix for value in row):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if not all(isinstance(value, (int, float))
+               for row in matrix for value in row):
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats"
+        )
     if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats"
+        )
     if not isinstance(matrix, list):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats"
+        )
     for row in matrix:
         if len(row) != len(matrix[0]):
             raise TypeError("Each row of the matrix must have the same size")
