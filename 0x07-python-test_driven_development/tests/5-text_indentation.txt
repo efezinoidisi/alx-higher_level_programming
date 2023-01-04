@@ -1,0 +1,25 @@
+The ``5-text_indentation`` module test
+===================================
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("""  Hello, how are you doing today?  would you like to see a movie: Sound of Music this weekend? let me know.""")
+Hello, how are you doing today?
+<BLANKLINE>
+would you like to see a movie:
+<BLANKLINE>
+Sound of Music this weekend?
+<BLANKLINE>
+let me know.
+<BLANKLINE>
+
+
+>>> text_indentation(7.8)
+Traceback (most recent call last):
+	  ...
+TypeError: text must be a string
+
+>>> text_indentation(["hello"])
+Traceback (most recent call last):
+          ...
+TypeError: text must be a string
