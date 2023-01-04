@@ -31,7 +31,7 @@ class Square:
                 for _ in range(self.size):
                     square += "#"
                 square += "\n"
-        return square
+        return square[:-1]
 
     @property
     def size(self):
