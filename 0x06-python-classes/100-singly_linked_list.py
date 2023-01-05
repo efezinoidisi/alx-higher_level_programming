@@ -50,7 +50,7 @@ class SinglyLinkedList:
             linked_list += str(current.data)
             linked_list += "\n"
             current = current.next_node
-        return linked_list
+        return linked_list[:-1]
 
     def sorted_insert(self, value):
         """ Inserts a new node into the list by increasing order"""
