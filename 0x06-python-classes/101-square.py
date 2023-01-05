@@ -18,6 +18,21 @@ class Square:
         self.size = size
         self.position = position
 
+    def __str__(self):
+        square = ""
+        if self.size == 0:
+            square += "\n"
+        else:
+            for _ in range(self.position[1]):
+                square += "\n"
+            for i in range(self.size):
+                for _ in range(self.position[0]):
+                    square += " "
+                for _ in range(self.size):
+                    square += "#"
+                square += "\n"
+        return square[:-1]
+
     @property
     def size(self):
         """ This is the size property
