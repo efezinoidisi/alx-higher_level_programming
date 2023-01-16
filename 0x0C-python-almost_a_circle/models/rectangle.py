@@ -131,10 +131,10 @@ class Rectangle(Base):
                 pass
         else:
             try:
-                self.id = kwargs[str(id)]
-                self.width = kwargs[width]
-                self.height = kwargs[height]
-                self.x = kwargs[x]
-                self.y = kwargs[y]
+                self.id = kwargs["id"]
+                self.width = kwargs["width"]
+                self.height = kwargs["height"]
+                self.x = kwargs["x"]
+                self.y = kwargs["y"]
             except Exception:
                 pass
