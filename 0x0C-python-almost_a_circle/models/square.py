@@ -25,18 +25,17 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
-        def __str__(self):
-            return f"[Square] (self.id) {self.x}/{self.y} - {self.width}"
+    def __str__(self):
+        return f"[Square] (self.id) {self.x}/{self.y} - {self.width}"
 
-        @property
-        def size(self):
-            """
-            size of the square: which is the width or height of a 
+    @property
+    def size(self):
+        """
+         size of the square: which is the width or height of a
             rectangle
-            """
-            return self.width
+         """
+        return self.width
 
-        @size.setter
-        def size(self, value):
-            self.width = value
-            self.height = value
+    @size.setter
+    def size(self, value):
+        self.width = self.height = value
