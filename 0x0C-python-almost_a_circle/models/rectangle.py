@@ -129,7 +129,13 @@ class Rectangle(Base):
                 self.y = args[4]
             except Exception:
                 pass
-        else:
+        if kwargs:
+            keys = kwargs.keys()
+            if 'id' in keys:
+                self.id = kwargs['id']
+            if 'width' in keys:
+                self.width = kwargs['width']
+            if 
             try:
                 self.id = kwargs["id"]
                 self.width = kwargs["width"]
