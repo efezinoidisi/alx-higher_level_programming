@@ -126,7 +126,7 @@ class Rectangle(Base):
                 self.height = args[2]
                 self.x = args[3]
                 self.y = args[4]
-            except:
+            except Exception:
                 pass
         else:
             try:
@@ -135,5 +135,5 @@ class Rectangle(Base):
                 self.height = kwargs[height]
                 self.x = kwargs[x]
                 self.y = kwargs[y]
-            except:
+            except Exception:
                 pass
