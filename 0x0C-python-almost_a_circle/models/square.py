@@ -43,6 +43,10 @@ class Square(Rectangle):
         self.width = self.height = value
 
     def update(self, *args, **kwargs):
+        """
+        This method updates the values of the instance attributes
+
+        """
         if args:
             try:
 
