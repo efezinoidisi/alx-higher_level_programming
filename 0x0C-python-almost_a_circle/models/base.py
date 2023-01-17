@@ -73,3 +73,5 @@ class Base:
             dum = cls(4)
         dum.update(**dictionary)
         return dum
+
+    
