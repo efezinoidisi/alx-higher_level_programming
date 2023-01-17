@@ -74,4 +74,20 @@ class Base:
         dum.update(**dictionary)
         return dum
 
-    
+    @classmethod
+    def load_from_file(cls):
+        """
+        This method returns a list of instances
+
+        """
+        try:
+            with open(f"{cls.__name__}.json", 'r', encoding='utf-8') as f:
+                details = cls.from_json_string(f.read())
+                lst = []
+                for dictionary in details:
+                    ins = cls.create(**dictionary)
+                    lst.append(ins)
+                return lst
+
+        except FileNotFoundError:
+            return []
