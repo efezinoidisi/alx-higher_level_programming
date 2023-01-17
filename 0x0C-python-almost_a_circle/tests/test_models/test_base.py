@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unit test for base class
+Unit test for the Base class in the base module
 """
 
 import unittest
@@ -18,3 +18,5 @@ class BaseTestCase(unittest.TestCase):
         b4 = Base()
         self.assertEqual(b4.id, 3)
         
+if __name__ == "__main__":
+    unittest.main()
