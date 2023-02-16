@@ -2,4 +2,4 @@
 
 SELECT shows.title, genres.genre_id FROM tv_shows AS shows
 JOIN tv_shows_genres AS genres ON shows.id = genres.show_id
-ORDER BY shows.title ASC, genres.genre_id ASC;
+ORDER BY shows.title, genres.genre_id;
