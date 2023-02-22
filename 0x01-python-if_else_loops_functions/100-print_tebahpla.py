@@ -6,4 +6,4 @@ for i in range(122, 96, -1):
         alpha += chr(i - 32)
     else:
         alpha += chr(i)
-print("{}".format(alpha))
+print("{}".format(alpha), end="")
