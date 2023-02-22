@@ -2,68 +2,78 @@
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
- * @head: linked list
+ * @head: pointer to linked list
  *
  * Return: 1 if true or 0 if false
  */
 
 int is_palindrome(listint_t **head)
 {
-	int i;
+	listint_t *current = *head, *temp = NULL;
+	int i, size;
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (1);
 
-	i = palindrome_helper(*head);
+	size = get_size(*head);
+	for (i = 0; i < size / 2; i++)
+		current = current->next;
+	while (current)
+	{
+		add_nodeint_end(&temp, current->n);
+		current = current->next;
+	}
+	temp = reverse_list(temp);
+	current = *head;
+	while (temp)
+	{
+		if (temp->n != current->n)
+			return (0);
 
-	return (i);
+		current = current->next;
+		temp = temp->next;
+	}
+	return (1);
 }
 
 /**
- * palindrome_helper - checks if a singly linked list is a palindrome
- * @head: start of linked list
+ * get_size - length of a singly linked list
+ * @head: linked list
  *
- * Return: 1 if true or 0 if false
+ * Return: size of list
  */
 
 
-int palindrome_helper(listint_t *head)
+int get_size(listint_t *head)
 {
-	int *arr;
-	int i, j, temp, len;
-	listint_t *current;
+	int size = 0;
 
-	current = head;
-	len = 0;
-	arr = malloc(sizeof(int) * len);
-	if (arr == NULL)
-		return (0);
+	while (head)
+	{
+		size++;
+		head = head->next;
+	}
+	return (size);
+}
+
+
+/**
+ * reverse_list - reverses a singly linked list
+ * @head: singly linked list
+ *
+ * Return: reversed list
+ */
+
+listint_t *reverse_list(listint_t *head)
+{
+	listint_t *next = NULL, *prev = NULL, *current = head;
+
 	while (current)
 	{
-		arr[i] = current->n;
-		len++;
-		i++;
-		current = current->next;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	arr[i] = 0;
-	/* reverse the array */
-	for (i = 0, j = len - 1; i < len / 2; i++, j--)
-	{
-		temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
-	/* compare linked list with reversed array */
-	current = head;
-	for (i = 0; current; i++)
-	{
-		if (current->n != arr[i])
-		{
-			free(arr);
-			return (0);
-		}
-		current = current->next;
-	}
-	free(arr);
-	return (1);
+	return (prev);
 }
