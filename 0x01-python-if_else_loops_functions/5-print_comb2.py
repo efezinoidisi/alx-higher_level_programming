@@ -2,9 +2,8 @@
 
 # prints numbers from 0 to 99 separated by comma
 
-for i in range(100):
+for i in range(0, 100):
     if i == 99:
-        print(i)
-    #    print("{:02d}".format(i))
+        print('{:02d}'.format(i))
     #else:
      #   print("{:02d},".format(i), end=" ")
