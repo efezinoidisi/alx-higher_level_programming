@@ -24,7 +24,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 		i++;
 	}
-	temp = reverse_list(temp);
+	reverse_list(&temp);
 	current = *head;
 	while (temp)
 	{
@@ -69,9 +69,9 @@ int get_size(listint_t *head)
  * Return: reversed list
  */
 
-listint_t *reverse_list(listint_t *head)
+void reverse_list(listint_t **head)
 {
-	listint_t *next = NULL, *prev = NULL, *current = head;
+	listint_t *next = NULL, *prev = NULL, *current = *head;
 
 	while (current)
 	{
@@ -80,5 +80,5 @@ listint_t *reverse_list(listint_t *head)
 		prev = current;
 		current = next;
 	}
-	return (prev);
+	*head = prev;
 }
