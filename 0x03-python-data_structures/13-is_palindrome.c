@@ -16,23 +16,28 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	size = get_size(*head);
-	for (i = 0; i < size / 2; i++)
-		current = current->next;
+	i = 0;
 	while (current)
 	{
-		add_nodeint_end(&temp, current->n);
+		if (i >= size / 2)
+			add_nodeint_end(&temp, current->n);
 		current = current->next;
+		i++;
 	}
 	temp = reverse_list(temp);
 	current = *head;
 	while (temp)
 	{
 		if (temp->n != current->n)
+		{
+			free_listint(temp);
 			return (0);
+		}
 
 		current = current->next;
 		temp = temp->next;
 	}
+	free_listint(temp);
 	return (1);
 }
 
