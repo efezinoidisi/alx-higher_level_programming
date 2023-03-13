@@ -24,7 +24,7 @@ void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
 int get_size(listint_t *head);
-listint_t *reverse_list(listint_t *head);
+void reverse_list(listint_t **head);
 
 
 #endif /* LISTS_H */
