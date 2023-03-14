@@ -9,8 +9,6 @@ if (filePaths.length === 3) {
   const file1 = fs.readFileSync(filePaths[0]);
   const file2 = fs.readFileSync(filePaths[1]);
   fd.write(file1);
-  fd.write('\n');
   fd.write(file2);
-  fd.write('\n');
   fd.end();
 }
