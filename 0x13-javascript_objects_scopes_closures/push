@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# == 2 ]; then
+   git add "$1";
+else
+   git add .;
+fi
+git commit -m "$2"
+git push
