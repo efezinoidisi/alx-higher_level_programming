@@ -2,7 +2,7 @@
 
 // This script imports an dictionary and computes a new dictionary of user ids by occurrences
 
-const dict = require('./main.js').dict;
+const dict = require('./101-data.js').dict;
 const newDict = {};
 for (const [key, value] of Object.entries(dict)) {
   if (newDict[value] === undefined) {
