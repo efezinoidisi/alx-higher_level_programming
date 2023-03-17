@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This script takes in an argument and displays all values in the states
+table of the hbtn_0e_0_usa where name matches the argument
+"""
 from sys import argv
 
 if __name__ == "__main__":
