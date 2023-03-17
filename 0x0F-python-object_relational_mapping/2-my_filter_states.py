@@ -20,7 +20,7 @@ def connect_db(*args):
             port=3306,
             charset="utf8")
         cur = db.cursor()
-        query = """SELECT * FROM states WHERE name='{}'
+        query = """SELECT * FROM states WHERE BINARY name='{}'
         ORDER BY id""".format(args[3])
         cur.execute(query)
         rows = cur.fetchall()
