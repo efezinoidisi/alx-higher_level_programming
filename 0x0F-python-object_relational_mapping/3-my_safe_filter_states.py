@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This script is the version of module '2-my_filter_states.py'
+that is safe from a sql injection attack
+"""
 from sys import argv
 
 if __name__ == "__main__":

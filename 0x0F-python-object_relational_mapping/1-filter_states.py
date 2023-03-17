@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This script lists all states with a name starting with N
+"""
 from sys import argv
 
 if __name__ == "__main__":
