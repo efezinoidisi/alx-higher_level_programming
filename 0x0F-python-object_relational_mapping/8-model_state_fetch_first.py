@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 start link class to table in database
-THis script lists all State objects from the database hbtn_0e_6_usa
+THis script lists the first State objects from the database hbtn_0e_6_usa
 """
 from sys import argv
 from model_state import Base, State
@@ -25,10 +25,8 @@ def query_db(username, password, db):
         Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
-        query = select(State).where(State.id == 1)
-        for state in session.scalars(query):
-            if state:
-                print(state)
+        #query = select(State).where(State.id == 1)
+        print(session.query(State).where(State.id == 1).one())
     except exc.SQLAlchemyError as err:
         print(err)
     finally:
