@@ -24,7 +24,11 @@ def query_db(username, password, db):
             pool_pre_ping=True)
         Session = sessionmaker(engine)
         session = Session()
-        print(session.query(State).first())
+        query = session.query(State).first()
+        if query:
+            print(f"{query.id}: {query.name}")
+        else:
+            print("Nothing")
     except exc.SQLAlchemyError as err:
         print(err)
     finally:
