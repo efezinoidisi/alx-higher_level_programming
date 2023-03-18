@@ -3,12 +3,22 @@
 This module contains a script that lists all states
 from the database hbtn_0e_0_usa
 """
-if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
+from sys import argv
+import MySQLdb
+
+
+def connect_to_db(username, password, dbname):
+    """
+    connect to the database and query data
+    """
     try:
-        db = MySQLdb.connect(host='localhost', user=argv[1], passwd=argv[2],
-                             db=argv[3], port=3306, charset="utf8")
+        db = MySQLdb.connect(
+            host='localhost',
+            user=username,
+            passwd=password,
+            db=dbname,
+            port=3306,
+            charset="utf8")
         cur = db.cursor()
         cur.execute("SELECT * FROM states ORDER BY id")
         rows = cur.fetchall()
@@ -18,3 +28,8 @@ if __name__ == "__main__":
             print(row)
     except MySQLdb.Error:
         print("An Error occured, Try again later")
+
+
+if __name__ == "__main__":
+    _, username, password, dbname = argv
+    connect_to_db(username, password, dbname)
