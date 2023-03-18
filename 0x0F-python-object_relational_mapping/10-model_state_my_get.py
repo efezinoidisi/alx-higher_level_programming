@@ -6,11 +6,12 @@ argument from the database hbtn_0e_6_usa
 """
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine, select, exc
+from sqlalchemy import create_engine, exc
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql.expression import literal
 
 
-def query_db(username, password, db, state):
+def main():
     """
     connect to the database and query database
 
@@ -19,18 +20,18 @@ def query_db(username, password, db, state):
           password (str): mysql password
           db (str): database name
     """
+    _, username, password, db, state = argv
     try:
         engine = create_engine(
             f'mysql+mysqldb://{username}:{password}@localhost/{db}',
             pool_pre_ping=True)
         Session = sessionmaker(engine)
         session = Session()
-        query = session.query(State.id).where(State.name == state)
-        if query.count() != 0:
-            for i in query:
-                print(i[0])
+        query = session.query(State.id).filter(State.name == state).first()
+        if query:
+            print(query[0])
         else:
-            print("Not Found")
+            print("Not found")
     except exc.SQLAlchemyError as err:
         print(err)
     finally:
@@ -39,5 +40,4 @@ def query_db(username, password, db, state):
 
 
 if __name__ == "__main__":
-    _, username, password, db, state = argv
-    query_db(username, password, db, state)
+    main()
