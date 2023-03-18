@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, select, exc, asc
 from sqlalchemy.orm import sessionmaker
 
 
-def query_db(username, password, db):
+def query_db():
     """
     connect to the database and query database
 
@@ -18,14 +18,15 @@ def query_db(username, password, db):
           password (str): mysql password
           db (str): database name
     """
+    _, username, password, db = argv
     try:
         engine = create_engine(
             f'mysql+mysqldb://{username}:{password}@localhost/{db}',
             pool_pre_ping=True)
         Session = sessionmaker(engine)
         session = Session()
-        query = select(State).order_by(asc(State.id))
-        for state in session.scalars(query):
+        query = session.query(State).order_by(State.id)
+        for state in query:
             print(f"{state.id}: {state.name}")
     except exc.SQLAlchemyError as err:
         print(err)
@@ -35,5 +36,4 @@ def query_db(username, password, db):
 
 
 if __name__ == "__main__":
-    _, username, password, db = argv
-    query_db(username, password, db)
+    query_db()
