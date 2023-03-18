@@ -25,8 +25,7 @@ def query_db(username, password, db):
         Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
-        #query = select(State).where(State.id == 1)
-        print(session.query(State).where(State.id == 1).one())
+        print(session.query(State).first())
     except exc.SQLAlchemyError as err:
         print(err)
     finally:
