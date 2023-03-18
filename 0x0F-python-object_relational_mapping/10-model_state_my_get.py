@@ -23,7 +23,6 @@ def query_db(username, password, db, state):
         engine = create_engine(
             f'mysql+mysqldb://{username}:{password}@localhost/{db}',
             pool_pre_ping=True)
-        Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
         query = session.query(State.id).where(State.name == state)

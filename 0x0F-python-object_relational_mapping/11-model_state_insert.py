@@ -6,7 +6,7 @@ to the database hbtn_0e_6_usa
 """
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine, insert, exc
+from sqlalchemy import create_engine, exc
 from sqlalchemy.orm import sessionmaker
 
 
@@ -23,10 +23,9 @@ def query_db(username, password, db):
         engine = create_engine(
             f'mysql+mysqldb://{username}:{password}@localhost/{db}',
             pool_pre_ping=True)
-        Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
-        ins = State('Louisiana')
+        ins = State(name='Louisiana')
         session.add(ins)
         session.commit()
         print(ins.id)

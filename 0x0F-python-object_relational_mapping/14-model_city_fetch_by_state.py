@@ -26,11 +26,13 @@ def query_db(username, password, db):
         Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
-        query = select(City).order_by(asc(City.id))
-        for city in session.scalars(query):
-            print(city)
+        query = session.query(
+            State.name, City.id, City.name).join(State).order_by(City.id)
+        for res in query:
+            print(f"{res[0]}: ({res[1]}) {res[2]}")
+
     except exc.SQLAlchemyError as err:
-        print(err)
+        print("something went wrong")
     finally:
         session.close()
         engine.dispose()
