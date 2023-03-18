@@ -5,7 +5,7 @@ THis script lists all State objects from the database hbtn_0e_6_usa
 """
 from sys import argv
 from model_state import Base, State
-from sqlalchemy import create_engine, select, exc
+from sqlalchemy import create_engine, select, exc, asc
 from sqlalchemy.orm import sessionmaker
 
 
@@ -25,7 +25,7 @@ def query_db(username, password, db):
         Base.metadata.create_all(engine)
         Session = sessionmaker(engine)
         session = Session()
-        query = select(State)
+        query = select(State).order_by(asc(State.id))
         for state in session.scalars(query):
             print(state)
     except exc.SQLAlchemyError as err:
