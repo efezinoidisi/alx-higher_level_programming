@@ -20,13 +20,11 @@ def connect_to_db(username, password, dbname):
             port=3306,
             charset="utf8")
         cur = db.cursor()
-        print("pp")
         query = """SELECT c.id, c.name, s.name FROM cities AS c
         INNER JOIN states AS s ON c.state_id = s.id
         ORDER BY c.id"""
         cur.execute(query)
         rows = cur.fetchall()
-        print('here')
         for row in rows:
             print(row)
     except MySQLdb.Error as err:
