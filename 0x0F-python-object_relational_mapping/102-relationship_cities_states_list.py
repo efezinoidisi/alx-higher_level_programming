@@ -9,7 +9,7 @@ from relationship_city import City
 from relationship_state import State
 
 
-def list_state_city():
+def list_city_state():
     """
     Connect to the database and query database
     """
@@ -33,4 +33,4 @@ def list_state_city():
 
 
 if __name__ == "__main__":
-    list_state_city()
+    list_city_state()
