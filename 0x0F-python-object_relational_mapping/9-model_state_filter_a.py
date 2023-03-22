@@ -26,9 +26,9 @@ def query_db(username, password, db):
         Session = sessionmaker(engine)
         session = Session()
         query = session.query(
-                State).filter(State.name.like('%a%')).order_by(State.id)
+                State).filter(State.name.like('%a%')).order_by(State.id).all()
         for state in query:
-            print(state)
+            print(f'{state.id}: {state.name}')
     except exc.SQLAlchemyError as err:
         print(err)
     finally:
