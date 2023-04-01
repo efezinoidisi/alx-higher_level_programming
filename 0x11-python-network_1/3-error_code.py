@@ -15,6 +15,7 @@ def handle_error():
     try:
         with urllib.request.urlopen(request) as response:
             data = response.read().decode('utf-8')
+            print(data)
     except HTTPError as err:
         print(f'Error code: {err.code}')
 
