@@ -18,7 +18,7 @@ def post_url():
         res.raise_for_status()
         data = res.json()
         if data:
-            print(f'[{data["id"]}] {data["name"]}')
+            print(f'[{data.get("id")}] {data.get("name")}')
         else:
             print('No result')
     except requests.exceptions.JSONDecodeError as err:
