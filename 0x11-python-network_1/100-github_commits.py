@@ -11,7 +11,7 @@ from sys import argv
 def get_commits():
     """
     Lists 10 commits from a github repository using the github
-    API by : '<sha>: <author name>'
+    API by: '<sha>: <author name>'
     """
     _, repo, owner = argv
     url = f'https://api.github.com/repos/{owner}/{repo}/commits?per_page=10'
