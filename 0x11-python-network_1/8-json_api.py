@@ -21,7 +21,7 @@ def post_url():
             print(f'[{data.get("id")}] {data.get("name")}')
         else:
             print('No result')
-    except requests.exceptions.JSONDecodeError as err:
+    except ValueError as err:
         print('Not a valid JSON')
 
 
