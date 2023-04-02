@@ -13,7 +13,7 @@ def fetch_url():
     fetch a url using the package requests
     """
     request = requests.get(argv[1])
-    print(request.headers['X-Request-Id'])
+    print(request.headers.get('X-Request-Id'))
 
 
 if __name__ == '__main__':
