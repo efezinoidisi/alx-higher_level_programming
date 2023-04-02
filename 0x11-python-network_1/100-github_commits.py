@@ -5,15 +5,16 @@ from a github repository. The repo name and owner name are passed
 as command line arguments
 """
 import requests
-from sys import argv
+import sys
 
 
 def get_commits():
     """
     sends a post request to a  url using the package requests
     """
-    headers = {'Authorization': f'token {argv[2]}'}
-    url = f'https://api.github.com/repos/{argv[2]}/{argv[1]}/commits'
+    owner = sys.argv[2]
+    repo = sys.argv[1]
+    url = f'https://api.github.com/repos/{owner}/{repo}/commits'
     try:
         res = requests.get(url)
         res.raise_for_status()
