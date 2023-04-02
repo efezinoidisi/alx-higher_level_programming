@@ -24,7 +24,7 @@ def get_commits():
             name = f"{item.get('commit').get('author').get('name')}"
             print(sha + name)
     except requests.exceptions.HTTPError as err:
-        continue
+        pass
 
 
 if __name__ == '__main__':
