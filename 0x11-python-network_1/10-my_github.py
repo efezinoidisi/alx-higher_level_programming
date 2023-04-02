@@ -10,7 +10,7 @@ def post_url():
     """
     sends a post request to a  url using the package requests
     """
-    headers = {'Authorization': f'token {argv[2]}', 'X-GitHub-Api-Version': "2022-11-28"}
+    headers = {'Authorization': f'token {argv[2]}'}
     url = f'https://api.github.com/users/{argv[1]}'
     try:
         res = requests.get(url, headers=headers)
@@ -18,7 +18,7 @@ def post_url():
         data = res.json()
         print(data.get('id'))
     except requests.exceptions.HTTPError as err:
-        print(err)
+        print('None')
 
 
 if __name__ == '__main__':
