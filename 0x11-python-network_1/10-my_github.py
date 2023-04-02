@@ -6,7 +6,7 @@ import requests
 from sys import argv
 
 
-def post_url():
+def get_id():
     """
     sends a post request to a  url using the package requests
     """
@@ -22,4 +22,4 @@ def post_url():
 
 
 if __name__ == '__main__':
-    post_url()
+    get_id()
